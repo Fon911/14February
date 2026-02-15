@@ -12,7 +12,7 @@ export const AmbientLight: React.FC = () => {
   const lightRef = useRef<HTMLDivElement>(null)
   const mousePos = useRef({ x: 0, y: 0 })
   const currentPos = useRef({ x: 0, y: 0 })
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

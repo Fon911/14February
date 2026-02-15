@@ -23,7 +23,7 @@ export const CursorTrail: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const particlesRef = useRef<TrailParticle[]>([])
   const mouseRef = useRef({ x: 0, y: 0, prevX: 0, prevY: 0 })
-  const rafRef = useRef<number>()
+  const rafRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     const canvas = canvasRef.current
