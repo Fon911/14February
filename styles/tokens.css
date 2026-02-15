@@ -1,0 +1,172 @@
+/**
+ * Design Tokens
+ *
+ * Централизованная система дизайн-токенов для проекта.
+ * Используется через Tailwind CSS классы.
+ *
+ * ЗАПРЕЩЕНО:
+ * - Использовать hex/rgb цвета напрямую в компонентах
+ * - Хардкодить размеры шрифтов
+ * - Inline styles с цветами или шрифтами
+ */
+
+:root {
+  /* === Colors === */
+
+  /* Backgrounds */
+  --color-bg-primary: #0b0b12;
+  --color-bg-secondary: #141421;
+  --color-bg-overlay: rgba(11, 11, 18, 0.85);
+
+  /* Text */
+  --color-text-primary: #f5f5f7;
+  --color-text-muted: #b3b3c2;
+  --color-text-faded: #7a7a8c;
+
+  /* Accents */
+  --color-accent-rose: #f2a1b3;
+  --color-accent-soft: #f7cbd6;
+  --color-accent-glow: rgba(242, 161, 179, 0.2);
+
+  /* Interactive */
+  --color-interactive-hover: #ffd9e2;
+  --color-interactive-active: #f7cbd6;
+
+  /* === Typography === */
+
+  /* Font families */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Font sizes - responsive with clamp - КРУПНЕЕ */
+  --text-display: clamp(3.5rem, 8vw, 7rem);
+  --text-xl: clamp(2.5rem, 5vw, 4.5rem);
+  --text-lg: clamp(1.75rem, 3vw, 2.5rem);
+  --text-base: clamp(1.25rem, 2vw, 1.5rem);
+  --text-sm: clamp(1rem, 1.5vw, 1.25rem);
+
+  /* Line heights */
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* === Spacing === */
+
+  /* Section spacing - БОЛЬШЕ ВОЗДУХА */
+  --spacing-section-sm: clamp(5rem, 12vh, 8rem);
+  --spacing-section-md: clamp(8rem, 16vh, 12rem);
+  --spacing-section-lg: clamp(12rem, 24vh, 20rem);
+
+  /* Element spacing - КРУПНЕЕ */
+  --spacing-element-xs: 1rem;
+  --spacing-element-sm: 1.5rem;
+  --spacing-element-md: 2.5rem;
+  --spacing-element-lg: 4rem;
+  --spacing-element-xl: 6rem;
+
+  /* === Layout === */
+
+  /* Container widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+
+  /* === Animation === */
+
+  /* Durations */
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 600ms;
+  --duration-slower: 1000ms;
+
+  /* Easings */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* === Effects === */
+
+  /* Shadows */
+  --shadow-soft: 0 4px 20px rgba(242, 161, 179, 0.1);
+  --shadow-glow: 0 0 40px var(--color-accent-glow);
+
+  /* Blur */
+  --blur-light: 8px;
+  --blur-medium: 16px;
+  --blur-heavy: 32px;
+
+  /* === Interactive === */
+
+  /* Touch targets */
+  --touch-target-min: 44px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+}
+
+/* === Global Resets === */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  overflow-x: hidden;
+}
+
+/* === Typography Utilities === */
+
+.text-display {
+  font-size: var(--text-display);
+  font-weight: 200;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+}
+
+.text-heading {
+  font-size: var(--text-xl);
+  font-weight: 300;
+  line-height: var(--leading-tight);
+}
+
+.text-body {
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: var(--leading-relaxed);
+}
+
+.text-small {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: var(--leading-normal);
+}
+
+/* === Selection === */
+
+::selection {
+  background-color: var(--color-accent-rose);
+  color: var(--color-bg-primary);
+}
+
+::-moz-selection {
+  background-color: var(--color-accent-rose);
+  color: var(--color-bg-primary);
+}
